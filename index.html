@@ -1,15 +1,17 @@
 <!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Love Calculator</title>
 
-<!-- Bootstrap core CSS -->
-<link href="css/lib/bootstrap.min.css" rel="stylesheet" />
-<link href="css/main.css" rel="stylesheet" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Love Calculator</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="css/lib/bootstrap.min.css" rel="stylesheet" />
+  <link href="css/main.css" rel="stylesheet" />
 
 </head>
+
 <body>
 
   <div class="container">
@@ -20,14 +22,16 @@
 
       <div class="col-md-6">
         <div class="form-group">
-          <label for="personA">Your Name:</label> <input type="text" class="form-control" id="personA">
+          <label for="personA">Your Name:</label>
+          <input type="text" class="form-control" id="personA">
         </div>
         <div id="personA-alert" class="alert alert-danger alert-dismissable fade out"></div>
       </div>
 
       <div class="col-md-6">
         <div class="form-group">
-          <label for="personB">Your Lover's Name:</label> <input type="text" class="form-control" id="personB">
+          <label for="personB">Your Lover's Name:</label>
+          <input type="text" class="form-control" id="personB">
         </div>
         <div id="personB-alert" class="alert alert-danger alert-dismissable fade out"></div>
       </div>
@@ -54,7 +58,9 @@
     <script src="js/lib/backbone.js"></script>
     <script src="js/lib/tether.min.js"></script>
     <script src="js/lib/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/view/result.js"></script>
+    <script src="js/core/calculator.js"></script>
+    <script src="js/app.js"></script>
 
     <!-- Your code goes here. -->
     <!-- <script>
@@ -72,4 +78,5 @@
     });
     </script> -->
 </body>
+
 </html>
