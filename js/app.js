@@ -7,6 +7,7 @@ var AppView = Backbone.View.extend({
 
   initialize: function() {
     this.removeErrors();
+    this.hideSpinner();
   },
 
   calculate: function(e) {
@@ -24,6 +25,7 @@ var AppView = Backbone.View.extend({
 
     console.log("Calculating score for: ", personA, personB);
     var self = this;
+    self.showSpinner();
     findOne(personA, personB)
       .done(function(data) {
         console.log("Retrieved score from history for: ", personA, personB);
@@ -37,6 +39,9 @@ var AppView = Backbone.View.extend({
         } else {
           //TODO handle other api error.
         }
+      })
+      .always(function() {
+        self.hideSpinner();
       });
   },
 
@@ -84,6 +89,15 @@ var AppView = Backbone.View.extend({
       .addClass("in")
       .removeClass("out");
     $(field).text(message);
+  },
+
+  showSpinner: function() {
+    $("#calculate").hide();
+    $("#spinner").show();
+  },
+  hideSpinner: function() {
+    $("#calculate").show();
+    $("#spinner").hide();
   }
 });
 
