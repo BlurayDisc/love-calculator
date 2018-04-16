@@ -16,8 +16,10 @@ function calculate(personA, personB) {
   return [{ love_score: love }];
 }
 
-// Sort these names in alphebetical order, and returns
+// Sort these names in alphebetical order, and returns the params object.
 function sortAndConvertToParams(personA, personB, love) {
+  personA = personA.toLowerCase();
+  personB = personB.toLowerCase();
   var params = {
     person_a: personB > personA ? personA : personB,
     person_b: personB > personA ? personB : personA
