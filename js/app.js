@@ -28,16 +28,13 @@ var AppView = Backbone.View.extend({
     self.showSpinner();
     findOne(personA, personB)
       .done(function(data) {
-        console.log("Retrieved score from history for: ", personA, personB);
-        self.displayResult(personA, personB, data);
-      })
-      .fail(function(error) {
-        if (error.status == 404) {
-          console.log("Calculating new score for: ", personA, personB);
-          var data = calculate(personA, personB);
+        if (!_.isEmpty(data)) {
+          console.log("Retrieved score from history for: ", personA, personB);
           self.displayResult(personA, personB, data);
         } else {
-          //TODO handle other api error.
+          console.log("Calculating new score for: ", personA, personB);
+          data = calculate(personA, personB);
+          self.displayResult(personA, personB, data);
         }
       })
       .always(function() {
@@ -46,13 +43,10 @@ var AppView = Backbone.View.extend({
   },
 
   displayResult: function(personA, personB, data) {
-    if (data.length > 1) {
-      console.log("More than one result was returned: ", data);
-    }
     var result = new Result({
       personA: personA,
       personB: personB,
-      love: data[0].love_score
+      love: data.loveScore
     });
     var resultView = new ResultView({
       el: "#result",

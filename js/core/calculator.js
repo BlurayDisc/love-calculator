@@ -1,31 +1,36 @@
 function findOne(personA, personB) {
   return $.ajax({
-    url: config.baseUrl + "/" + config.tableId + "/search",
+    url: config.baseUrl + config.projectId,
+    type: "GET",
     data: sortAndConvertToParams(personA, personB)
   });
 }
 
 function calculate(personA, personB) {
-  // showcasing the complex calculation algorithm:
-  var love = random(1, 100);
+  // showcasing complex calculation algorithm:
+  var loveScore = random(1, 100);
   $.ajax({
-    url: config.baseUrl + "/" + config.tableId,
+    url: config.baseUrl + config.projectId,
     type: "POST",
-    data: sortAndConvertToParams(personA, personB, love)
+    data: sortAndConvertToParams(personA, personB, loveScore)
   });
-  return [{ love_score: love }];
+  return {
+    personA: personA,
+    personB: personB,
+    loveScore: loveScore
+  };
 }
 
 // Sort these names in alphebetical order, and returns the params object.
-function sortAndConvertToParams(personA, personB, love) {
+function sortAndConvertToParams(personA, personB, loveScore) {
   personA = personA.toLowerCase();
   personB = personB.toLowerCase();
   var params = {
-    person_a: personB > personA ? personA : personB,
-    person_b: personB > personA ? personB : personA
+    personA: personB > personA ? personA : personB,
+    personB: personB > personA ? personB : personA
   };
-  if (love) {
-    params.love_score = love;
+  if (loveScore) {
+    params.loveScore = loveScore;
   }
   return params;
 }

@@ -1,4 +1,4 @@
 var config = {
-  baseUrl: "https://sheetsu.com/apis/v1.0su/",
-  tableId: "c20a3f5dcf9b"
+  baseUrl: "https://script.google.com/macros/s/",
+  projectId: "AKfycbx2Bz4EWDLbq0jCP2pxVVrxckhYreSSFMAq9_jviM3mcAgd6bHE/exec"
 };
