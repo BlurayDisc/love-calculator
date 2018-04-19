@@ -7,7 +7,6 @@ var AppView = Backbone.View.extend({
 
   initialize: function() {
     this.removeErrors();
-    this.hideSpinner();
   },
 
   calculate: function(e) {
